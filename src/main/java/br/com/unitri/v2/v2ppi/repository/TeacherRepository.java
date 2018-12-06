@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.unitri.v2.v2ppi.models.entity.Teacher;
+import br.com.unitri.v2.v2ppi.models.Teacher;
 
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {

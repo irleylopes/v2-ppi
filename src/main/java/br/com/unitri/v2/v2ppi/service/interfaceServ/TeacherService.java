@@ -1,23 +1,15 @@
 package br.com.unitri.v2.v2ppi.service.interfaceServ;
 
 
-import br.com.unitri.v2.v2ppi.models.entity.Teacher;
-import br.com.unitri.v2.v2ppi.models.request.TeacherRequest;
-import br.com.unitri.v2.v2ppi.models.response.TeacherResponse;
+import br.com.unitri.v2.v2ppi.models.Teacher;
 
 public interface TeacherService {
 
-    Teacher create(Teacher client);
+    Teacher findById(Long id);
 
-    TeacherResponse findById(Long id);
+    void createUser(String username, String rawPassword);
 
-    TeacherResponse update(TeacherRequest client, Long id);
+    Teacher findByUsername(String username);
 
-    void cancelUser(TeacherRequest client);
-
-    void clientSaved(Teacher clientSave);
-
-    void clientExist(Teacher client);
-
-    void clientNotExist(Teacher client);
+    Teacher create(Teacher client, String rawPassword);
 }

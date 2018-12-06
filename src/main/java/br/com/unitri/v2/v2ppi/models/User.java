@@ -1,4 +1,4 @@
-package br.com.unitri.v2.v2ppi.models.entity;
+package br.com.unitri.v2.v2ppi.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

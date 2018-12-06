@@ -1,9 +1,11 @@
 package br.com.unitri.v2.v2ppi.repository;
 
-import br.com.unitri.v2.v2ppi.models.Discipline;
+import br.com.unitri.v2.v2ppi.models.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Entity;
+
 @Repository
-public interface DisciplineRepository extends JpaRepository<Discipline, Long> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
 }
