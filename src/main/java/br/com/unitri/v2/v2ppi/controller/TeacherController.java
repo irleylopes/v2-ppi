@@ -45,14 +45,14 @@ public class TeacherController {
 //        return new ResponseEntity<>(HttpStatus.OK);
 //    }
 
-    @GetMapping(value={"home"})
-    public ModelAndView home(Principal principal) {
-
-        Teacher teacher = this.teacherService.findByUsername(principal.getName());
-        ModelAndView mv = new ModelAndView("home");
-        mv.addObject("teacher", teacher);
-        return mv;
-    }
+//    @GetMapping(value={"home"})
+//    public ModelAndView home(Principal principal) {
+//
+//        Teacher teacher = this.teacherService.findByUsername(principal.getName());
+//        ModelAndView mv = new ModelAndView("home");
+//        mv.addObject("teacher", teacher);
+//        return mv;
+//    }
 
     @GetMapping(value = "profile")
     public ModelAndView profileIndex(Principal principal){
