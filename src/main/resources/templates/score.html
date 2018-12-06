@@ -11,7 +11,7 @@
 <body>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <strong>Alunos</strong>
+        <strong>Notas</strong>
     </div>
     <div class="panel-body">
         <div class="table-responsive">
@@ -19,21 +19,27 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nome</th>
-                    <th>Matricula</th>
+                    <th>V1</th>
+                    <th>V2</th>
+                    <th>VT1</th>
+                    <th>VT2</th>
+                    <th>VT3</th>
+                    <th>Inter</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="student : ${students}">
-                    <td th:text="${student.id}"></td>
-                    <td th:text="${student.name}"></td>
-                    <td th:text="${student.registrationNumber}"></td>
+                <tr th:each="score : ${scores}">
+                    <td th:text="${score.id}"></td>
+                    <td th:text="${score.checkOne}"></td>
+                    <td th:text="${score.checkTwo}"></td>
+                    <td th:text="${score.checkThree}"></td>
+                    <td th:text="${score.checkFour}"></td>
+                    <td th:text="${score.checkFive}"></td>
+                    <td th:text="${score.checkSix}"></td>
                     <td>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-sm btn-success" th:href="@{/score/}" >Gerenciar</a>
-                            <a class="btn btn-sm btn-primary" th:href="@{/student/edit/{id}(id=${student.id})}" >Editar</a>
-                            <a class="delete btn btn-sm btn-danger" th:href="@{/student/delete/{id}(id=${student.id})}">Excluir</a>
+                            <a class="btn btn-sm btn-success" th:href="@{/score/edit/{id}(id=${score.id})}" >Gerenciar</a>
                         </div>
                     </td>
                 </tr>
@@ -42,7 +48,7 @@
         </div>
     </div>
     <div class="panel-footer">
-        <a class="btn btn-sm btn-success" th:href="@{/student/add}" >Adicionar</a>
+        <a class="btn btn-sm btn-success" th:href="@{/score/add}" >Adicionar</a>
     </div>
 </div>
 </body>
