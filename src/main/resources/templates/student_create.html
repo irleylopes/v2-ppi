@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>INTER</title>
+    <link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{'/public/css/style.css'}">
+    <link rel="stylesheet" type="text/css" th:href="@{'/public/css/login/style.css'}">
+    <script type="text/javascript" th:src="@{'/public/js/constants.js'}"></script>
+    <script type="text/javascript" th:src="@{'/public/js/login/functions.js'}"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Cadastro de Aluno</strong>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" th:object="${student}" th:action="@{/student/save}" method="POST" style="margin: 10px">
+            <div class="form-group">
+                <fieldset>
+                    <div class="form-group row">
+                        <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+                            <div th:each="detailedError : ${#fields.detailedErrors()}">
+                                <span th:text="${detailedError.message}"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-1">
+                            <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+                            <label>Nome</label>
+                            <input type="text" class="form-control input-sm" th:field="*{name}" autofocus="autofocus" placeholder="Informe o nome do aluno(a)" maxlength="50"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4" th:classappend="${#fields.hasErrors('registrationNumber')}? 'has-error'">
+                            <label>Matricula</label>
+                            <input type="text" class="form-control input-sm" th:field="*{registrationNumber}" maxlength="150" placeholder="Informe o numero da matricula"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group row">
+                <button type="submit" class="btn btn-sm btn-success">Salvar</button>
+                <a th:href="@{/student/}" class="btn btn-sm btn-default">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

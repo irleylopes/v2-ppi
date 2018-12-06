@@ -1,6 +1,6 @@
 package br.com.unitri.v2.v2ppi.service.interfaceServ;
 
-import br.com.unitri.v2.v2ppi.models.entity.Discipline;
+import br.com.unitri.v2.v2ppi.models.Discipline;
 
 import java.util.List;
 

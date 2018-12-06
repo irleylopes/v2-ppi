@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">	<head>
+    <title>Inter06</title>
+    <link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{'/public/css/style.css'}">
+    <link rel="stylesheet" type="text/css" th:href="@{'/public/css/home/style.css'}">
+    <script type="text/javascript" th:src="@{'/public/js/constants.js'}"></script>
+    <script type="text/javascript" th:src="@{'/public/js/login/functions.js'}"></script>
+</head>
+<body>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Alunos</strong>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Matricula</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.registrationNumber}"></td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-sm btn-success" th:href="@{/pessoas/edit/{id}(id=${student.id})}" >Gerenciar</a>
+                            <a class="btn btn-sm btn-primary" th:href="@{/student/edit/{id}(id=${student.id})}" >Editar</a>
+                            <a class="delete btn btn-sm btn-danger" th:href="@{/student/delete/{id}(id=${student.id})}">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-sm btn-success" th:href="@{/student/add}" >Adicionar</a>
+    </div>
+</div>
+</body>
+</html>

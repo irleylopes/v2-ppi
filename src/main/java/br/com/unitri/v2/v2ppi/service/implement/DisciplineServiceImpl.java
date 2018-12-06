@@ -1,6 +1,6 @@
 package br.com.unitri.v2.v2ppi.service.implement;
 
-import br.com.unitri.v2.v2ppi.models.entity.Discipline;
+import br.com.unitri.v2.v2ppi.models.Discipline;
 import br.com.unitri.v2.v2ppi.repository.DisciplineRepository;
 import br.com.unitri.v2.v2ppi.service.interfaceServ.DisciplineService;
 import org.springframework.beans.factory.annotation.Autowired;

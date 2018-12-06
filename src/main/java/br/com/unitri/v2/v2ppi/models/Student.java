@@ -1,4 +1,4 @@
-package br.com.unitri.v2.v2ppi.models.entity;
+package br.com.unitri.v2.v2ppi.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,23 +6,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Discipline {
+public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    private String number;
-    private String shift;
 
-    public Discipline() {
+    private String registrationNumber;
+
+    public Student() {
     }
 
-    public Discipline(String name, String number, String shift) {
+    public Student(String name, String registrationNumber) {
         this.name = name;
-        this.number = number;
-        this.shift = shift;
+        this.registrationNumber = registrationNumber;
     }
 
     public Long getId() {
@@ -41,29 +40,20 @@ public class Discipline {
         this.name = name;
     }
 
-    public String getNumber() {
-        return number;
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getShift() {
-        return shift;
-    }
-
-    public void setShift(String shift) {
-        this.shift = shift;
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
     }
 
     @Override
     public String toString() {
-        return "Discipline{" +
+        return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", number='" + number + '\'' +
-                ", shift='" + shift + '\'' +
+                ", registrationNumber='" + registrationNumber + '\'' +
                 '}';
     }
 }
