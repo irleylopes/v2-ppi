@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">	<head>
+		<title>Inter06</title>
+		<link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" th:href="@{'/public/css/style.css'}">
+		<link rel="stylesheet" type="text/css" th:href="@{'/public/css/home/style.css'}">
+		<script type="text/javascript" th:src="@{'/public/js/constants.js'}"></script>
+		<script type="text/javascript" th:src="@{'/public/js/login/functions.js'}"></script>
+	</head>
+	<body>
+			<div th:replace="fragments :: header"></div>
+			<div class="container-fluid">
+				<div class="row">
+					<div th:replace="fragments :: left_menu"></div>
+					<div class="col-9">
+						<div class="my-3 p-3 bg-white rounded shadow-sm">
+							<h6 class="border-bottom border-gray pb-2 mb-0">Meus serviços</h6>
+							<th:block th:each="service : ${client.services}">
+								<div class="media text-muted pt-3">
+
+									<div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+										<div class="d-flex justify-content-between align-items-center w-100">
+											<strong class="text-gray-dark">http://localhost:8084/service/cgi/[[${#httpServletRequest.remoteUser}]]/[[${service.id}]] ([[${service.title}]])</strong>
+
+											<a th:href="@{'/service/' + ${service.id}}">Editar</a>
+										</div>
+										<span class="d-block truncate-300">[[${service.code}]]</span>
+										<span th:if="${service.enabled}" class="badge badge-success">Ativo</span>
+										<span th:if="${!service.enabled}" class="badge badge-danger">Inativo</span>
+									</div>
+								</div>
+							</th:block>
+							<small class="d-block text-right mt-3">
+							<a th:href="@{'/service/add'}">Novo serviço</a>
+							</small>
+						</div>
+					</div>
+				</div>
+
+			</div>
+	</body>
+</html>

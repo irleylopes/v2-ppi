@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+		<title>INTER</title>
+		<link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" th:href="@{'/public/css/style.css'}">
+		<link rel="stylesheet" type="text/css" th:href="@{'/public/css/login/style.css'}">
+		<script type="text/javascript" th:src="@{'/public/js/constants.js'}"></script>
+		<script type="text/javascript" th:src="@{'/public/js/login/functions.js'}"></script>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div class="container-fluid container-todo">
+			<div class="row h-100">
+				<div class="col-12 background-image"></div>
+				<div class="offset-4 col-4 container-center">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<h3 class="text-center">Login</h3>
+							</div>
+							<form th:action="@{/login}" method="post">
+								<div class="input-group">
+									<div class="col-12">
+										<label>Usuário</label>
+										<div class="form-group">
+											<input type="text" name="username" class="input-email form-control">
+										</div>
+									</div>
+									<div class="col-12">
+										<label>Senha</label>
+										<div class="form-group">
+											<input type="password" name="password" class="input-password form-control">
+										</div>
+									</div>
+									<div class="col-12 text-right">
+										<a th:href="@{/add}"  class="">Cadastrar</a>
+									</div>
+									<div class="col-12 text-center">
+										<button class="btn btn-success">Entrar</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
