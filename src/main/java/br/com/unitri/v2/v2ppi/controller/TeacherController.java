@@ -48,9 +48,9 @@ public class TeacherController {
     @GetMapping(value={"home"})
     public ModelAndView home(Principal principal) {
 
-        Teacher client = this.teacherService.findByUsername(principal.getName());
+        Teacher teacher = this.teacherService.findByUsername(principal.getName());
         ModelAndView mv = new ModelAndView("home");
-        mv.addObject("teacher", client);
+        mv.addObject("teacher", teacher);
         return mv;
     }
 
