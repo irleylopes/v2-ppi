@@ -9,35 +9,43 @@
 		<script type="text/javascript" th:src="@{'/public/js/login/functions.js'}"></script>
 	</head>
 	<body>
-			<div th:replace="fragments :: header"></div>
-			<div class="container-fluid">
-				<div class="row">
-					<div th:replace="fragments :: left_menu"></div>
-					<div class="col-9">
-						<div class="my-3 p-3 bg-white rounded shadow-sm">
-							<h6 class="border-bottom border-gray pb-2 mb-0">Meus serviços</h6>
-							<th:block th:each="service : ${client.services}">
-								<div class="media text-muted pt-3">
-
-									<div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-										<div class="d-flex justify-content-between align-items-center w-100">
-											<strong class="text-gray-dark">http://localhost:8084/service/cgi/[[${#httpServletRequest.remoteUser}]]/[[${service.id}]] ([[${service.title}]])</strong>
-
-											<a th:href="@{'/service/' + ${service.id}}">Editar</a>
-										</div>
-										<span class="d-block truncate-300">[[${service.code}]]</span>
-										<span th:if="${service.enabled}" class="badge badge-success">Ativo</span>
-										<span th:if="${!service.enabled}" class="badge badge-danger">Inativo</span>
-									</div>
-								</div>
-							</th:block>
-							<small class="d-block text-right mt-3">
-							<a th:href="@{'/service/add'}">Novo serviço</a>
-							</small>
-						</div>
-					</div>
-				</div>
-
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong>Disciplinas</strong>
 			</div>
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-sm table-striped table-hover table-bordered">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Numero</th>
+							<th>Turno</th>
+							<th></th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each="discipline : ${disciplines}">
+							<td th:text="${discipline.id}"></td>
+							<td th:text="${discipline.name}"></td>
+							<td th:text="${discipline.number}"></td>
+							<td th:text="${discipline.shift}"></td>
+							<td>
+								<div class="btn-group pull-right">
+									<a class="btn btn-sm btn-success" th:href="@{/pessoas/edit/{id}(id=${discipline.id})}" >Gerenciar</a>
+									<a class="btn btn-sm btn-primary" th:href="@{/discipline/edit/{id}(id=${discipline.id})}" >Editar</a>
+									<a class="delete btn btn-sm btn-danger" th:href="@{/discipline/delete/{id}(id=${discipline.id})}">Excluir</a>
+								</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<a class="btn btn-sm btn-success" th:href="@{/discipline/add}" >Adicionar</a>
+			</div>
+		</div>
 	</body>
 </html>
