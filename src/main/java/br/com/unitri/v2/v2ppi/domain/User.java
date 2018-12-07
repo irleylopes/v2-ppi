@@ -1,4 +1,4 @@
-package br.com.unitri.v2.v2ppi.models;
+package br.com.unitri.v2.v2ppi.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

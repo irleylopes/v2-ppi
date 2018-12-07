@@ -1,7 +1,7 @@
 package br.com.unitri.v2.v2ppi.service.interfaceServ;
 
 
-import br.com.unitri.v2.v2ppi.models.Teacher;
+import br.com.unitri.v2.v2ppi.domain.Teacher;
 
 public interface TeacherService {
 

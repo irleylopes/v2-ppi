@@ -1,9 +1,7 @@
-package br.com.unitri.v2.v2ppi.models;
+package br.com.unitri.v2.v2ppi.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Discipline {
@@ -12,6 +10,11 @@ public class Discipline {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    private Teacher teacher;
+
+    @OneToMany(mappedBy = "discipline")
+    private List<Student> students;
     private String name;
     private String number;
     private String shift;
@@ -55,6 +58,22 @@ public class Discipline {
 
     public void setShift(String shift) {
         this.shift = shift;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 
     @Override

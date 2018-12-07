@@ -1,12 +1,14 @@
 package br.com.unitri.v2.v2ppi.service.interfaceServ;
 
-import br.com.unitri.v2.v2ppi.models.Score;
+import br.com.unitri.v2.v2ppi.domain.Score;
 
 import java.util.List;
 
 public interface ScoreService {
 
-    Score create(Score score);
+    List<Score> findAll(Long studentId);
+
+    Score create(Score score, Long studentId);
 
     Score findById(Long id);
 

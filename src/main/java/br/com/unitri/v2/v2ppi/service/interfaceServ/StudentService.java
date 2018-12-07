@@ -1,12 +1,12 @@
 package br.com.unitri.v2.v2ppi.service.interfaceServ;
 
-import br.com.unitri.v2.v2ppi.models.Student;
+import br.com.unitri.v2.v2ppi.domain.Student;
 
 import java.util.List;
 
 public interface StudentService {
 
-    Student create(Student student);
+    Student create(Student student, Long disciplineId);
 
     Student findById(Long id);
 
@@ -14,5 +14,5 @@ public interface StudentService {
 
     void delete(Long id);
 
-    List<Student> findAll();
+    List<Student> findAll(Long disciplineId);
 }

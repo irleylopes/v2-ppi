@@ -19,27 +19,20 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>V1</th>
-                    <th>V2</th>
-                    <th>VT1</th>
-                    <th>VT2</th>
-                    <th>VT3</th>
-                    <th>Inter</th>
+                    <th>DESCRICAO</th>
+                    <th>VALOR</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="score : ${scores}">
                     <td th:text="${score.id}"></td>
-                    <td th:text="${score.checkOne}"></td>
-                    <td th:text="${score.checkTwo}"></td>
-                    <td th:text="${score.checkThree}"></td>
-                    <td th:text="${score.checkFour}"></td>
-                    <td th:text="${score.checkFive}"></td>
-                    <td th:text="${score.checkSix}"></td>
+                    <td th:text="${score.describ}"></td>
+                    <td th:text="${score.value}"></td>
                     <td>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-sm btn-success" th:href="@{/score/edit/{id}(id=${score.id})}" >Gerenciar</a>
+                            <a class="btn btn-sm btn-primary" th:href="@{/score/edit/{id}(id=${score.id})}" >Editar</a>
+                            <a class="delete btn btn-sm btn-danger" th:href="@{/score/delete/{id}(id=${score.id})}">Excluir</a>
                         </div>
                     </td>
                 </tr>

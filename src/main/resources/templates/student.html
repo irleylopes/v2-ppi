@@ -31,7 +31,7 @@
                     <td th:text="${student.registrationNumber}"></td>
                     <td>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-sm btn-success" th:href="@{/score/}" >Gerenciar</a>
+                            <a class="btn btn-sm btn-success" th:href="@{/score/{id}(id=${student.id})}" >Gerenciar</a>
                             <a class="btn btn-sm btn-primary" th:href="@{/student/edit/{id}(id=${student.id})}" >Editar</a>
                             <a class="delete btn btn-sm btn-danger" th:href="@{/student/delete/{id}(id=${student.id})}">Excluir</a>
                         </div>

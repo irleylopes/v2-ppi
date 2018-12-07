@@ -1,6 +1,6 @@
 package br.com.unitri.v2.v2ppi.service.interfaceServ;
 
-import br.com.unitri.v2.v2ppi.models.Discipline;
+import br.com.unitri.v2.v2ppi.domain.Discipline;
 
 import java.util.List;
 
@@ -14,5 +14,5 @@ public interface DisciplineService {
 
     void delete(Long id);
 
-    List<Discipline> findAll();
+    List<Discipline> findAll(String name);
 }

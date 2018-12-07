@@ -1,6 +1,8 @@
 package br.com.unitri.v2.v2ppi.service.implement;
 
-import br.com.unitri.v2.v2ppi.models.Student;
+import br.com.unitri.v2.v2ppi.domain.Discipline;
+import br.com.unitri.v2.v2ppi.domain.Student;
+import br.com.unitri.v2.v2ppi.repository.DisciplineRepository;
 import br.com.unitri.v2.v2ppi.repository.StudentRepository;
 import br.com.unitri.v2.v2ppi.service.interfaceServ.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,13 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private DisciplineRepository disciplineRepository;
+
     @Override
-    public Student create(Student student) {
+    public Student create(Student student, Long disciplineId) {
+        Optional<Discipline> discipline = disciplineRepository.findById(disciplineId);
+        student.setDiscipline(discipline.get());
         student = studentRepository.save(student);
         return student;
     }
@@ -39,8 +46,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> findAll() {
-        List<Student> students = studentRepository.findAll();
+    public List<Student> findAll(Long disciplineId) {
+        List<Student> students = studentRepository.findByDiscipline(disciplineId);
         return students;
     }
 }

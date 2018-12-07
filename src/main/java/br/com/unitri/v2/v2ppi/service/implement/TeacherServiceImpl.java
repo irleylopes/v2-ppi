@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Service;
 
-import br.com.unitri.v2.v2ppi.models.Teacher;
+import br.com.unitri.v2.v2ppi.domain.Teacher;
 import br.com.unitri.v2.v2ppi.repository.TeacherRepository;
 
 

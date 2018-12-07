@@ -1,9 +1,7 @@
-package br.com.unitri.v2.v2ppi.models;
+package br.com.unitri.v2.v2ppi.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Teacher {
@@ -15,6 +13,9 @@ public class Teacher {
     private String username;
 
     private String cpf;
+
+    @OneToMany(mappedBy = "teacher")
+    private List<Discipline> disciplines;
 
     public Teacher(String username, String cpf) {
         this.username = username;

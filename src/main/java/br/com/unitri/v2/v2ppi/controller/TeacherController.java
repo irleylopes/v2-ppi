@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.unitri.v2.v2ppi.models.Teacher;
+import br.com.unitri.v2.v2ppi.domain.Teacher;
 import br.com.unitri.v2.v2ppi.service.implement.TeacherServiceImpl;
 
 @Controller
@@ -22,7 +22,6 @@ public class TeacherController {
 
     @GetMapping(value = "profile")
     public ModelAndView profileIndex(Principal principal){
-
         Teacher teacher = this.teacherService.findByUsername(principal.getName());
         ModelAndView mv = new ModelAndView("profile");
         mv.addObject("teacher", teacher);

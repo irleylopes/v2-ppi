@@ -1,6 +1,6 @@
 package br.com.unitri.v2.v2ppi.controller;
 
-import br.com.unitri.v2.v2ppi.models.Student;
+import br.com.unitri.v2.v2ppi.domain.Student;
 import br.com.unitri.v2.v2ppi.service.interfaceServ.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +20,27 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping(value={"/"})
+    private Long disciplineId;
+
+    @GetMapping(value="/{id}")
+    public ModelAndView home(@PathVariable("id") Long id) {
+        this.disciplineId = id;
+        ModelAndView mv = new ModelAndView("student");
+        mv.addObject("students", studentService.findAll(disciplineId));
+        return mv;
+    }
+
+    @GetMapping(value="/")
+    public ModelAndView home() {
+        ModelAndView mv = new ModelAndView("student");
+        mv.addObject("students", studentService.findAll(disciplineId));
+        return mv;
+    }
+
+    @GetMapping(value={"/findAll"})
     public ModelAndView findAll() {
-        ModelAndView mv = new ModelAndView("student");///chama pagina
-        mv.addObject("students", studentService.findAll());
+        ModelAndView mv = new ModelAndView("student");
+        mv.addObject("students", studentService.findAll(disciplineId));
         return mv;
     }
 
@@ -39,7 +56,7 @@ public class StudentController {
         if(result.hasErrors()) {
             return add(student);
         }
-        studentService.create(student);
+        studentService.create(student, disciplineId);
         return findAll();
     }
 
