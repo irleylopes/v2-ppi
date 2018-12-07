@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-        <title>INTER</title>
+        <title>V2 - PPI</title>
         <link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" th:href="@{'/public/css/style.css'}">
         <link rel="stylesheet" type="text/css" th:href="@{'/public/css/login/style.css'}">
@@ -58,5 +58,8 @@
                 </form>
             </div>
         </div>
+        <footer style="position: absolute;  right: 0;  bottom: 0;  left: 0;" th:fragment="footer">
+            <a th:href="@{/fragments}">Quem Somos</a>
+        </footer>
     </body>
 </html>
